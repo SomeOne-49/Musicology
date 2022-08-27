@@ -1,0 +1,520 @@
+:root {
+  --black: #303030;
+  --orange: #e8631c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Oswald", "sans-serif";
+  height: 5000px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit !important;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+.main-title h2.orange {
+  color: var(--orange);
+}
+
+.main-title h2.dark {
+  color: var(--black);
+}
+
+/**********************! NavBar Sectoin !************************/
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+nav.bg-dark {
+  background-color: var(--black) !important;
+}
+
+nav .navbar-brand img {
+  max-width: 93px;
+}
+
+nav .navbar-nav > li > a {
+  font-size: 1.5rem;
+}
+
+nav .navbar-nav > li > a:not(.active) {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+nav .navbar-nav > li > a:not(.active):hover {
+  opacity: 1;
+}
+
+nav .collapse i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+nav .collapse i:hover {
+  color: var(--orange);
+}
+
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+nav .collapse .search .search-box {
+  width: 75%;
+}
+
+@media (min-width: 992px) {
+  nav.bg-dark {
+    background-color: rgba(48, 48, 48, 0) !important;
+  }
+  nav .navbar-brand img {
+    max-width: 117px;
+  }
+  nav .navbar-nav > li > a,
+  nav .collapse i,
+  nav .collapse .search input {
+    font-size: 1.65rem;
+  }
+
+  nav .navbar-nav > li > a::before {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    width: 0;
+    height: 2.7px;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--orange);
+    transition: width 0.3s ease-in-out;
+  }
+  nav .navbar-nav > li > a.active::before,
+  nav .navbar-nav > li > a:hover::before {
+    width: 75%;
+  }
+
+  nav .collapse .search .search-box {
+    width: 0px;
+    transition: width .5s;
+  }
+  nav .collapse .search .search-box.active {
+    width: 200px;
+  }
+}
+
+@media (max-width: 991px) {
+  nav .navbar-nav > li > a.active,
+  nav .navbar-nav > li > a:hover {
+    color: var(--orange) !important;
+  }
+}
+
+/**********************! Main Section !************************/
+
+main {
+  position: relative;
+  background-image: url("./imgs/converted/main_9_11zon.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 75% 0%;
+  height: 100vh;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(48 48 48 / 25%);
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+main .text-box {
+  z-index: 2;
+  top: 45%;
+  left: 8%;
+}
+
+main .text-box h1 {
+  font-size: 90px;
+  color: var(--orange);
+}
+
+main .text-box a {
+  background-color: var(--orange) !important;
+  box-shadow: none !important;
+}
+
+main .text-box a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: var(--y-axis);
+  left: var(--x-axis);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--black);
+  transition: width 0.5s, height 0.5s;
+}
+
+main .text-box a:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+@media (min-width: 1400px) {
+  main .text-box {
+    width: 35% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  main .text-box {
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75% !important;
+  }
+  main .text-box h1 {
+    font-size: 65px;
+  }
+}
+
+/**********************! Dance Section !************************/
+
+.dance {
+  background-color: var(--orange);
+  background-image: url("imgs/converted/Shape_10_11zon.webp");
+  background-position: var(--x) 125%;
+  background-repeat: no-repeat;
+}
+
+.dance .card img {
+  filter: grayscale(0.5);
+}
+
+.dance .card img:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+  opacity: 0.95;
+  transition: opacity 0.1s, transform 0.2s;
+}
+
+.dance-left-ele,
+.dance-middle-ele,
+.dance-right-ele {
+  transform: scale(0);
+  opacity: 0;
+  transition: 1.5s;
+}
+.dance-left-ele.animated,
+.dance-middle-ele.animated,
+.dance-right-ele.animated {
+  transform: scale(1);
+  opacity: 1;
+}
+.dance-left-ele {
+  transform-origin: 0% 0%;
+}
+.dance-middle-ele {
+  transform-origin: 50% 100%;
+}
+
+.dance-right-ele {
+  transform-origin: 100% 0%;
+}
+
+@media (max-width: 991px) {
+  .dance {
+    background-image: none;
+  }
+}
+
+/**********************! Product Section !************************/
+
+.product {
+  background-color: var(--black);
+  background-image: url("imgs/converted/Shape3_12_11zon.webp");
+  background-repeat: no-repeat;
+  background-position: var(--x) -50%;
+}
+
+.pro-left-ele,
+.pro-middle-ele,
+.pro-right-ele {
+  transform: scale(0);
+  opacity: 0;
+  transition: 1.5s;
+}
+.pro-left-ele.animated,
+.pro-middle-ele.animated,
+.pro-right-ele.animated {
+  transform: scale(1);
+  opacity: 1;
+}
+.pro-left-ele {
+  transform-origin: 0% 100%;
+}
+
+.pro-middle-ele {
+  transform-origin: 50% 0%;
+}
+
+.pro-right-ele {
+  transform-origin: 100% 100%;
+}
+.product .card {
+  background-color: var(--orange);
+}
+
+.product .card .pric-icon {
+  font-size: 7rem !important;
+}
+
+.product a {
+  background-color: #393939;
+  box-shadow: none !important;
+  transition: background-color 0.3s;
+  font-size: 1.5rem;
+}
+
+.product a:hover {
+  background-color: var(--black);
+}
+
+@media (max-width: 991px) {
+  .product {
+    background-image: none;
+  }
+}
+
+/**********************! Amazing & Best Dance section !************************/
+
+.amazing-dance,
+.best-dance {
+  background-color: var(--orange);
+}
+
+.amazing-dance .img-box,
+.best-dance .img-box {
+  height: 750px;
+  background-size: cover;
+}
+
+.amazing-dance .img-box {
+  background-image: url("imgs/converted/amazing_1_11zon.webp");
+}
+
+.amazing-dance .img-box,
+.best-dance .img-box,
+.amazing-dance .box,
+.best-dance .box {
+  transform-origin: 100% 100%;
+  opacity: 0;
+  transition: 1.5s;
+}
+.amazing-dance .img-box.animated,
+.amazing-dance .box.animated,
+.best-dance .img-box.animated,
+.best-dance .box.animated {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.amazing-dance .img-box,
+.best-dance .box {
+  transform: translateX(-100%);
+}
+.amazing-dance .box,
+.best-dance .img-box {
+  transform: translateX(100%);
+}
+
+.best-dance .img-box {
+  background-image: url("imgs/converted/best_2_11zon.webp");
+}
+
+.amazing-dance .box h2,
+.best-dance .box h2 {
+  font-size: 3.25rem;
+}
+
+.amazing-dance .box a,
+.best-dance .box a {
+  background-color: #393939;
+  box-shadow: none !important;
+  transition: background-color 0.3s;
+}
+
+.amazing-dance .box a:hover,
+.best-dance .box a:hover {
+  background-color: var(--black);
+}
+
+@media (min-width: 1650px) {
+  .amazing-dance .img-box,
+  .best-dance .img-box {
+    height: 1200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .amazing-dance .img-box,
+  .best-dance .img-box {
+    height: 1000px;
+  }
+}
+
+/**********************! Our-Statistics Section !************************/
+
+.our-statistics {
+  background-color: var(--black);
+}
+
+.our-statistics .box p {
+  color: var(--orange);
+}
+
+/**********************! Herbert Section !************************/
+
+.herbert {
+  min-height: 974px;
+  background-image: url("imgs/converted/Herbert_7_11zon.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.herbert h2,
+.herbert p span {
+  color: hsl(45deg 100% 51%);
+}
+
+/**********************! Subscribe Section !************************/
+
+.subscribe {
+  background-image: url("imgs/converted/Design_6_11zon.webp");
+  background-size: cover;
+}
+
+.subscribe input[type="submit"] {
+  background-color: var(--black);
+}
+
+/**********************! Footer Section !************************/
+
+footer {
+  background-color: var(--black);
+}
+
+footer .box {
+  max-width: 525px;
+}
+
+footer h2 {
+  color: var(--orange);
+}
+
+footer .icons a i,
+footer ul li a {
+  transition: color 0.2s;
+}
+
+footer .box .icons a i:hover,
+footer ul li a:hover {
+  color: var(--orange) !important;
+}
+
+footer .copy-right span {
+  color: var(--orange);
+}
+
+/********************? Media Query Section ؟************************/
+
+@media (min-width: 1200px) {
+  /********************! Main Title Section ********************/
+  .main-title h2 {
+    font-size: 50px !important;
+  }
+  .main-title p {
+    font-size: 26px !important;
+  }
+  /********************! our-statistics Section ********************/
+  .our-statistics .box p {
+    font-size: 3rem !important;
+  }
+  .our-statistics .box > span {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  /********************! Product & Dance Section ********************/
+  .product .card-body h5,
+  .dance .card-body h5 {
+    font-size: 30px !important;
+  }
+  .product .card-body p,
+  .dance .card-body p {
+    font-size: 22px !important;
+  }
+  /********************! amazing & Best Dance Section ********************/
+  .amazing-dance .box h2,
+  .best-dance .box h2 {
+    font-size: 4rem;
+  }
+  .amazing-dance .box p,
+  .best-dance .box p {
+    font-size: 1.65rem !important;
+  }
+  .amazing-dance .box a,
+  .best-dance .box a {
+    font-size: 1.45rem !important;
+  }
+  /********************! our-statistics Section ********************/
+  .our-statistics .box p {
+    font-size: 4rem !important;
+  }
+  .our-statistics .box > span {
+    font-size: 2rem !important;
+  }
+  /********************! herbert Section ********************/
+
+  .herbert p {
+    font-size: 2.5rem !important;
+  }
+  .herbert h2 {
+    font-size: 3rem !important;
+  }
+}
