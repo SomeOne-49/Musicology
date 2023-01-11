@@ -215,7 +215,7 @@ main .text-box a:hover::before {
 
 .dance {
   background-color: var(--orange);
-  background-image: url("imgs/converted/Shape_10_11zon.webp");
+  background-image: url("imgs/Shape.png");
   background-position: var(--x) 125%;
   background-repeat: no-repeat;
 }
@@ -265,7 +265,7 @@ main .text-box a:hover::before {
 
 .product {
   background-color: var(--black);
-  background-image: url("imgs/converted/Shape3_12_11zon.webp");
+  background-image: url("imgs/Shape3.png");
   background-repeat: no-repeat;
   background-position: var(--x) -50%;
 }
